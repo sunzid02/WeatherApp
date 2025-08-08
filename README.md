@@ -31,28 +31,8 @@ The **Weather App** provides current weather information for locations in **Germ
 - **OpenCage Geocoding API**: Converts location names into latitude and longitude coordinates for accurate weather data fetching.
   - **API Documentation**: [OpenCage API](https://opencagedata.com)
 
-## Directory Structure
 
-### Frontend
-
-```bash
-frontend/
-├── public/
-│   ├── index.html
-│   ├── favicon.ico
-│   └── manifest.json
-├── src/
-│   ├── actions/
-│   ├── components/
-│   ├── reducers/
-│   ├── App.js
-│   ├── index.js
-│   └── store.js
-├── package.json
-└── README.md
-
-
-### Backend (if applicable)
+## Backend (if applicable)
 
 For this project, there is no separate backend as the app directly fetches data from the Open-Meteo and OpenCage APIs.
 
@@ -91,3 +71,9 @@ Ensure you have installed:
 
 ### After the development server is running
 Navigate to [http://localhost:3000](http://localhost:3000) in your browser to use the Weather App. Enter any location in Germany (e.g., Dortmund or Berlin), and the app will display the current weather data for that location.
+
+### Demo Image
+![Weather App Demo](https://github.com/sunzid02/WeatherApp/blob/main/public/demoPhoto.jpg)
+
+### Demo Video
+[Watch the demo video](https://github.com/sunzid02/WeatherApp/blob/main/public/demo.mp4)
