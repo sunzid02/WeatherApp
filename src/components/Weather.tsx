@@ -45,7 +45,7 @@ const Weather: React.FC = () => {
     }
   };
 
-  return (
+ return (
     <div className="weather-container">
       <h1>Weather App</h1>
       <input
@@ -62,10 +62,10 @@ const Weather: React.FC = () => {
       {loading && <div className="spinner"></div>}  {/* Display spinner while loading */}
       
       {/* Display error message if exists */}
-      {error && <p className="error">Please enter a valid location</p>}
+      {error && <p className="error">{error}</p>}
 
       {/* Display weather info when available */}
-      {!loading && !error && temperature && (
+      {!loading && !error && temperature !== null && description && (
         <div className="weather-cards">
           {/* Weather Description Card */}
           <div className="weather-card description-card">
@@ -84,8 +84,15 @@ const Weather: React.FC = () => {
           <div className="weather-card wind-card">
             <h3>Windspeed</h3>
             <p>{windspeed} km/h</p>
-            <p>Wind Direction: {winddirection}°</p>
           </div>
+
+          {/* Windspeed and Direction Card */}
+          <div className="weather-card">
+            <h3>Wind Direction</h3>
+            <p> {winddirection}°</p>
+          </div>
+
+
 
           {/* Day/Night Card */}
           <div className="weather-card day-night-card">
@@ -97,5 +104,6 @@ const Weather: React.FC = () => {
     </div>
   );
 };
+
 
 export default Weather;

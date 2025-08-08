@@ -38,7 +38,8 @@ body {
 
 /* Title */
 h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  /* Larger font size for the title */
   color: #2d3a3b;
   margin-bottom: 1rem;
 }
@@ -46,12 +47,13 @@ h1 {
 /* Input Field */
 .input {
   width: 80%;
-  padding: 0.75rem;
-  font-size: 1rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  /* Increased font size */
   border-radius: 5px;
   border: 1px solid #ddd;
   outline: none;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   transition: border-color 0.3s ease;
 }
 
@@ -61,8 +63,9 @@ h1 {
 
 /* Button */
 .button {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  /* Increased font size */
   color: #fff;
   background-color: #3498db;
   border: none;
@@ -78,9 +81,7 @@ h1 {
 /* Spinner */
 .spinner {
   border: 4px solid #f3f3f3;
-  /* Light grey */
   border-top: 4px solid #3498db;
-  /* Blue */
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -98,12 +99,13 @@ h1 {
     transform: rotate(360deg);
   }
 }
-/* Cards Layout */
+
+/* Weather Cards Layout */
 .weather-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* 2 columns */
-  gap: 1.5rem;
+  gap: 2rem;
+  /* Increased gap between the cards */
   margin-top: 2rem;
 }
 
@@ -117,38 +119,56 @@ h1 {
 
 .weather-card:hover {
   transform: translateY(-10px);
-  /* Slight lift effect */
 }
 
 .weather-card h3 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  /* Increased font size for headings */
   color: #3498db;
   margin-bottom: 1rem;
 }
 
-.weather-icon {
+.weather-card h2 {
   font-size: 2rem;
+  /* Larger font size for location */
+  color: #34495e;
+  margin-bottom: 1rem;
+}
+
+.weather-icon {
+  font-size: 3rem;
+  /* Larger icon size */
   color: #3498db;
   margin-bottom: 1rem;
 }
 
 .weather-info p,
 .weather-card p {
-  font-size: 1rem;
+  font-size: 1.8rem;
+  /* Increased font size for paragraph text */
   color: #7f8c8d;
 }
 
+
+
+
+
 .temp {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  /* Larger font size for temperature */
   color: #3498db;
   font-weight: bold;
 }
 
+.weather-card .weather-icon {
+  font-size: 3rem;
+}
+
 /* Error Message Style */
 .error {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  /* Increased font size for error message */
   color: #e74c3c;
-  /* Red color */
   margin-top: 1rem;
   text-align: center;
   font-weight: bold;
@@ -158,6 +178,6 @@ h1 {
 @media (max-width: 768px) {
   .weather-cards {
     grid-template-columns: 1fr;
-    /* Stack cards on smaller screens */
+    /* Stack cards vertically on smaller screens */
   }
 }
