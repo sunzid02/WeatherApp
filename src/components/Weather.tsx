@@ -2,36 +2,51 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchWeather } from '../redux/weatherActions';
 import { AppDispatch } from '../redux/store';
-import { log } from 'console';
+import { getWeatherDescription } from '../utils/weatherUtils';
 
 const Weather: React.FC = () => {
   const [location, setLocation] = useState('');
   const dispatch = useDispatch<AppDispatch>();
-  
 
-
-    // Access state and log it to verify the structure
-  const weatherState = useSelector((state: any) => state.weather);
-  console.log('Redux State:', weatherState);  // Log the entire state to check if temperature is available
-
-  
-  // Ensure the default value is an empty object if the state is undefined
-  const { loading = false, temperature = '', description = '', error = null } = useSelector(
-    (state: any) => state.weather || {} // Default to an empty object if state.weather is undefined
+  // Access weather state and error from Redux
+  const { loading, temperature, description, windspeed, winddirection, isDay, weathercode, location: weatherLocation, error } = useSelector(
+    (state: any) => state.weather || {}
   );
 
-
-
-
   const handleFetchWeather = () => {
-    dispatch(fetchWeather(location));  // Dispatching the action to fetch weather data
+    if (!location) {
+      alert('Please enter a location.');
+      return;
+    }
+    dispatch(fetchWeather(location));  // Dispatch action to fetch weather data
   };
 
+  // Get weather icon based on the weather code
+  const getWeatherIcon = (code: number) => {
+    switch (code) {
+      case 0:
+        return <i className="fas fa-sun"></i>; // Clear sky icon
+      case 1:
+      case 2:
+        return <i className="fas fa-cloud-sun"></i>; // Partly cloudy icon
+      case 3:
+      case 4:
+        return <i className="fas fa-cloud"></i>; // Cloudy icon
+      case 5:
+      case 6:
+      case 7:
+        return <i className="fas fa-cloud-showers-heavy"></i>; // Rain icon
+      case 8:
+        return <i className="fas fa-bolt"></i>; // Thunderstorm icon
+      case 9:
+        return <i className="fas fa-smog"></i>; // Fog icon
+      default:
+        return <i className="fas fa-question-circle"></i>; // Unknown weather icon
+    }
+  };
 
-  
   return (
     <div className="weather-container">
-      {console.log(temperature + ' Temperature')}
       <h1>Weather App</h1>
       <input
         type="text"
@@ -44,18 +59,41 @@ const Weather: React.FC = () => {
         Get Weather
       </button>
 
-      {loading && <p>Loading...</p>}
-      {error && <p className="error">{error}</p>}
+      {loading && <div className="spinner"></div>}  {/* Display spinner while loading */}
+      
+      {/* Display error message if exists */}
+      {error && <p className="error">Please enter a valid location</p>}
 
-      {temperature  && (
-        <div className="weather-info">
-          <h2>{location}</h2>
-          <p>{description}</p>
-          <p>{temperature}°C</p>
+      {/* Display weather info when available */}
+      {!loading && !error && temperature && (
+        <div className="weather-cards">
+          {/* Weather Description Card */}
+          <div className="weather-card description-card">
+            <h2>{weatherLocation}</h2>
+            <div className="weather-icon">{getWeatherIcon(weathercode)}</div>
+            <p>{description}</p>
+          </div>
+
+          {/* Temperature Card */}
+          <div className="weather-card temperature-card">
+            <h3>Temperature</h3>
+            <p className="temp">{temperature}°C</p>
+          </div>
+
+          {/* Windspeed and Direction Card */}
+          <div className="weather-card wind-card">
+            <h3>Windspeed</h3>
+            <p>{windspeed} km/h</p>
+            <p>Wind Direction: {winddirection}°</p>
+          </div>
+
+          {/* Day/Night Card */}
+          <div className="weather-card day-night-card">
+            <h3>Day/Night</h3>
+            <p>{isDay ? 'Day' : 'Night'}</p>
+          </div>
         </div>
       )}
-
-      <p>sadasd</p>
     </div>
   );
 };
