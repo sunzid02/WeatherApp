@@ -23,10 +23,10 @@ This is a **Weather App** built with **React** and **Redux**, designed to provid
 git clone https://github.com/yourusername/weather-app.git
 cd weather-app
 
-2. Install Dependencies
-bash
-Copy
+### 2. Install Dependencies
+```bash
 npm install
+
 3. Run the App
 bash
 Copy
