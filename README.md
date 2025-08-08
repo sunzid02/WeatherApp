@@ -91,3 +91,9 @@ Ensure you have installed:
 
 ### After the development server is running
 Navigate to [http://localhost:3000](http://localhost:3000) in your browser to use the Weather App. Enter any location in Germany (e.g., Dortmund or Berlin), and the app will display the current weather data for that location.
+
+### Demo Image
+![Weather App Demo](https://github.com/sunzid02/WeatherApp/blob/main/public/demoPhoto.jpg)
+
+### Demo Video
+[Watch the demo video](https://github.com/sunzid02/WeatherApp/blob/main/public/demo.mp4)
