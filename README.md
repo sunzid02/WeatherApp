@@ -31,28 +31,8 @@ The **Weather App** provides current weather information for locations in **Germ
 - **OpenCage Geocoding API**: Converts location names into latitude and longitude coordinates for accurate weather data fetching.
   - **API Documentation**: [OpenCage API](https://opencagedata.com)
 
-## Directory Structure
 
-### Frontend
-
-```bash
-frontend/
-├── public/
-│   ├── index.html
-│   ├── favicon.ico
-│   └── manifest.json
-├── src/
-│   ├── actions/
-│   ├── components/
-│   ├── reducers/
-│   ├── App.js
-│   ├── index.js
-│   └── store.js
-├── package.json
-└── README.md
-
-
-### Backend (if applicable)
+## Backend (if applicable)
 
 For this project, there is no separate backend as the app directly fetches data from the Open-Meteo and OpenCage APIs.
 
